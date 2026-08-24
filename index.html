@@ -1,531 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio — WebSwan Digital Solutions | Award-Winning Web Design</title>
-  <meta name="description" content="Explore WebSwan Digital Solutions award-winning portfolio. Custom websites built for healthcare, beauty, finance, hospitality, nonprofits and more — USA and worldwide." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Explore WebSwan Digital Solutions award-winning portfolio. Custom websites built for healthcare, beauty, finance, hospitality, nonprofits and more — USA and worldwide.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy: #0d4f8f;
-      --aqua: #0a89a6;
-      --laqua: #7fdbf0;
-      --acc: #f1fc4e;
-      --dark: #0a1628;
-      --card: #0d2240;
-      --w: #ffffff;
-      --w70: rgba(255, 255, 255, 0.7);
-      --w40: rgba(255, 255, 255, 0.4);
-    }
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    #portfolio {
-      scroll-margin-top: 20px;
-    }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--dark);
-      color: var(--w);
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
-    .ph {
-      background: linear-gradient(135deg, #0d4f8f, #0a89a6 60%, #7fdbf0);
-      padding: 3.5rem 1.5rem 2.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .ph::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
-    }
-    .badge {
-      display: inline-block;
-      background: var(--acc);
-      color: var(--navy);
-      font: 700 0.72rem/1 'DM Sans', sans-serif;
-      padding: 0.35rem 1rem;
-      border-radius: 20px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .ph h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 900;
-      color: var(--w);
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-    .ph h1 span {
-      color: var(--acc);
-    }
-    .ph p {
-      font-size: clamp(0.88rem, 2.5vw, 1.05rem);
-      color: rgba(255, 255, 255, 0.85);
-      max-width: 700px;
-      margin: 0 auto 1rem;
-      line-height: 1.65;
-    }
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .stat .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--acc);
-      line-height: 1;
-    }
-    .stat .lbl {
-      font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 0.2rem;
-    }
-    .sl {
-      text-align: center;
-      padding: 2.5rem 1.5rem 1rem;
-    }
-    .sl h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 3.5vw, 2rem);
-      color: var(--laqua);
-      margin-bottom: 0.5rem;
-    }
-    .sl p {
-      color: var(--w70);
-      font-size: 0.88rem;
-      max-width: 580px;
-      margin: 0 auto;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      padding: 1.5rem 1.5rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid rgba(127, 219, 240, 0.12);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      border-color: rgba(127, 219, 240, 0.4);
-    }
-    .imgwrap {
-      overflow: hidden;
-      position: relative;
-      height: 185px;
-      background: #0a1b33;
-    }
-    .cimg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      border-bottom: 2px solid rgba(241, 252, 78, 0.2);
-      transition: transform 0.4s ease;
-    }
-    .card:hover .cimg {
-      transform: scale(1.04);
-    }
-    .tag {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(13, 79, 143, 0.88);
-      backdrop-filter: blur(6px);
-      color: var(--laqua);
-      font: 700 0.67rem/1 'DM Sans', sans-serif;
-      padding: 0.28rem 0.75rem;
-      border-radius: 20px;
-      border: 1px solid rgba(127, 219, 240, 0.3);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      z-index: 2;
-    }
-    .loc {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(4px);
-      color: rgba(255, 255, 255, 0.85);
-      font: 600 0.67rem/1 'DM Sans', sans-serif;
-      padding: 0.22rem 0.6rem;
-      border-radius: 12px;
-      z-index: 2;
-    }
-    .body {
-      padding: 1.25rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--w);
-      line-height: 1.25;
-    }
-    .bf {
-      font-size: 0.73rem;
-      color: var(--acc);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .body p {
-      font-size: 0.83rem;
-      color: var(--w70);
-      line-height: 1.65;
-      flex: 1;
-    }
-    .pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.28rem;
-      margin-top: 0.2rem;
-    }
-    .pill {
-      background: rgba(10, 137, 166, 0.18);
-      border: 1px solid rgba(127, 219, 240, 0.22);
-      color: var(--laqua);
-      font-size: 0.67rem;
-      font-weight: 600;
-      padding: 0.18rem 0.52rem;
-      border-radius: 10px;
-    }
-    .btn {
-      display: block;
-      margin-top: 0.85rem;
-      background: var(--acc);
-      color: var(--navy) !important;
-      font: 800 0.82rem/1 'DM Sans', sans-serif;
-      padding: 0.7rem 1rem;
-      border-radius: 0.5rem;
-      text-align: center;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .btn:hover {
-      background: #e0eb45;
-      transform: translateY(-2px);
-    }
-    .cta {
-      background: linear-gradient(135deg, #0d4f8f, #0a89a6);
-      padding: 3rem 1.5rem;
-      text-align: center;
-      border-top: 3px solid var(--acc);
-    }
-    .cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 3.5vw, 2rem);
-      color: var(--acc);
-      margin-bottom: 0.75rem;
-    }
-    .cta p {
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
-      font-size: 0.92rem;
-      line-height: 1.65;
-    }
-    .brow {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      justify-content: center;
-    }
-    .bacc {
-      display: inline-block;
-      background: var(--acc);
-      color: var(--navy) !important;
-      font: 800 0.9rem/1 'DM Sans', sans-serif;
-      padding: 0.9rem 1.8rem;
-      border-radius: 0.6rem;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .bacc:hover {
-      background: #e0eb45;
-      transform: translateY(-2px);
-    }
-    .bout {
-      display: inline-block;
-      background: transparent;
-      color: var(--w) !important;
-      font: 800 0.9rem/1 'DM Sans', sans-serif;
-      padding: 0.9rem 1.8rem;
-      border-radius: 0.6rem;
-      text-decoration: none;
-      border: 2px solid var(--w);
-      transition: all 0.2s ease;
-    }
-    .bout:hover {
-      background: var(--w);
-      color: var(--navy) !important;
-    }
-    .bwa {
-      display: inline-block;
-      background: #4caf50;
-      color: #ffffff !important;
-      font: 800 0.9rem/1 'DM Sans', sans-serif;
-      padding: 0.9rem 1.8rem;
-      border-radius: 0.6rem;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .bwa:hover {
-      background: #388e3c;
-      transform: translateY(-2px);
-    }
-    .foot {
-      text-align: center;
-      padding: 1.25rem;
-      font-size: 0.7rem;
-      color: var(--w40);
-      background: var(--card);
-    }
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-      }
-      .imgwrap {
-        height: 165px;
-      }
-    }
+    :root{--navy:#0d4f8f;--aqua:#0a89a6;--laqua:#7fdbf0;--acc:#f1fc4e;--dark:#0a1628;--card:#0d2240;--w:white;--w70:rgba(255,255,255,.7);--w40:rgba(255,255,255,.4)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth} #portfolio{scroll-margin-top:20px;}
+    body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--w);overflow-x:hidden}
+
+    .ph{background:linear-gradient(135deg,#0d4f8f,#0a89a6 60%,#7fdbf0);padding:3.5rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden}
+    .ph::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
+    .badge{display:inline-block;background:var(--acc);color:var(--navy);font:700 .72rem/1 'DM Sans',sans-serif;padding:.35rem 1rem;border-radius:20px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+    .ph h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--w);line-height:1.15;margin-bottom:.75rem}
+    .ph h1 span{color:var(--acc)}
+    .ph p{font-size:clamp(.88rem,2.5vw,1.05rem);color:rgba(255,255,255,.85);max-width:700px;margin:0 auto 1rem;line-height:1.65}
+    .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:1.5rem}
+    .stat .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--acc);line-height:1}
+    .stat .lbl{font-size:.7rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem}
+
+    .sl{text-align:center;padding:2.5rem 1.5rem 1rem}
+    .sl h2{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3.5vw,2rem);color:var(--laqua);margin-bottom:.5rem}
+    .sl p{color:var(--w70);font-size:.88rem;max-width:580px;margin:0 auto}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;padding:1.5rem 1.5rem 3rem;max-width:1200px;margin:0 auto}
+
+    .card{background:var(--card);border-radius:1rem;overflow:hidden;border:1px solid rgba(127,219,240,.12);box-shadow:0 8px 30px rgba(0,0,0,.35);transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);border-color:rgba(127,219,240,.4)}
+    .imgwrap{overflow:hidden;position:relative;height:185px}
+    .cimg{width:100%;height:100%;object-fit:cover;object-position:top;display:block;border-bottom:2px solid rgba(241,252,78,.2);transition:transform .4s}
+    .card:hover .cimg{transform:scale(1.04)}
+    .tag{position:absolute;top:10px;left:10px;background:rgba(13,79,143,.88);backdrop-filter:blur(6px);color:var(--laqua);font:700 .67rem/1 'DM Sans',sans-serif;padding:.28rem .75rem;border-radius:20px;border:1px solid rgba(127,219,240,.3);text-transform:uppercase;letter-spacing:.06em}
+    .loc{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);color:rgba(255,255,255,.85);font:600 .67rem/1 'DM Sans',sans-serif;padding:.22rem .6rem;border-radius:12px}
+    .body{padding:1.25rem;flex:1;display:flex;flex-direction:column;gap:.4rem}
+    .body h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--w);line-height:1.25}
+    .bf{font-size:.73rem;color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .body p{font-size:.83rem;color:var(--w70);line-height:1.65;flex:1}
+    .pills{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.2rem}
+    .pill{background:rgba(10,137,166,.18);border:1px solid rgba(127,219,240,.22);color:var(--laqua);font-size:.67rem;font-weight:600;padding:.18rem .52rem;border-radius:10px}
+    .btn{display:block;margin-top:.85rem;background:var(--acc);color:var(--navy)!important;font:800 .82rem/1 'DM Sans',sans-serif;padding:.7rem 1rem;border-radius:.5rem;text-align:center;text-decoration:none;transition:background .2s,transform .2s}
+    .btn:hover{background:#e0eb45;transform:translateY(-2px)}
+    .wide{grid-column:1/-1;border:2px solid rgba(241,252,78,.25)}
+    .wide .imgwrap{height:200px}
+
+    .cta{background:linear-gradient(135deg,#0d4f8f,#0a89a6);padding:3rem 1.5rem;text-align:center;border-top:3px solid var(--acc)}
+    .cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3.5vw,2rem);color:var(--acc);margin-bottom:.75rem}
+    .cta p{color:rgba(255,255,255,.8);max-width:600px;margin:0 auto 1.5rem;font-size:.92rem;line-height:1.65}
+    .brow{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
+    .bacc{display:inline-block;background:var(--acc);color:var(--navy)!important;font:800 .9rem/1 'DM Sans',sans-serif;padding:.9rem 1.8rem;border-radius:.6rem;text-decoration:none;transition:background .2s,transform .2s}
+    .bacc:hover{background:#e0eb45;transform:translateY(-2px)}
+    .bout{display:inline-block;background:transparent;color:var(--w)!important;font:800 .9rem/1 'DM Sans',sans-serif;padding:.9rem 1.8rem;border-radius:.6rem;text-decoration:none;border:2px solid var(--w);transition:all .2s}
+    .bout:hover{background:var(--w);color:var(--navy)!important}
+    .bwa{display:inline-block;background:#4caf50;color:#fff!important;font:800 .9rem/1 'DM Sans',sans-serif;padding:.9rem 1.8rem;border-radius:.6rem;text-decoration:none;transition:background .2s,transform .2s}
+    .bwa:hover{background:#388e3c;transform:translateY(-2px)}
+    .foot{text-align:center;padding:1.25rem;font-size:.7rem;color:var(--w40);background:var(--card)}
+
+    @media(max-width:600px){.grid{grid-template-columns:1fr;padding:1rem}.imgwrap{height:165px}.wide{grid-column:1}}
   </style>
 </head>
 <body>
 
-  <!-- Hero Header -->
-  <header class="ph">
-    <span class="badge">🏆 2024 Best Web Design Agency — RankWatch | Top 20 — DesignRush</span>
-    <div style="margin:1rem auto .5rem;">
-      <img src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24030379/awardwinningagency_original.png" alt="RankWatch 2024 Best Web Design Agency Award WebSwan Digital Solutions" style="max-width:180px;height:auto;border-radius:.75rem;border:2px solid #f1fc4e;box-shadow:0 8px 25px rgba(0,0,0,.4);" />
+<div class="ph">
+  <span class="badge">🏆 2024 Best Web Design Agency — RankWatch | Top 20 — DesignRush</span>
+  <div style="margin:1rem auto .5rem;"><img src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/awardwinningagency_original.webp" alt="RankWatch 2024 Best Web Design Agency Award WebSwan Digital Solutions" style="max-width:180px;height:auto;border-radius:.75rem;border:2px solid #f1fc4e;box-shadow:0 8px 25px rgba(0,0,0,.4);"></div>
+  <h1>Our Work Speaks <span>Louder Than Words</span></h1>
+  <p>From healthcare to hospitality, beauty salons to business finance, luxury transportation to non-profit advocacy — every website below was custom designed from scratch. No templates. No shortcuts. Real results for real businesses across the USA and worldwide.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">15+</div><div class="lbl">Websites Built</div></div>
+    <div class="stat"><div class="num">12+</div><div class="lbl">Industries</div></div>
+    <div class="stat"><div class="num">100%</div><div class="lbl">Custom Designed</div></div>
+    <div class="stat"><div class="num">✅</div><div class="lbl">ADA &amp; State Compliant</div></div>
+    <div class="stat"><div class="num">🌍</div><div class="lbl">USA &amp; Worldwide</div></div>
+  </div>
+</div>
+
+<div class="sl" id="portfolio">
+  <h2>Featured Client Work</h2>
+  <p>Every website is ADA compliant, mobile-first, SEO optimized, and fully compliant with the state and country laws of each client's business location — including privacy policy, cookie management, and accessibility standards. Click any card to visit the live website.</p>
+</div>
+
+<div class="grid">
+
+  <!-- 1. Strip Limo LLC — Luxury Limousine Service -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/striplimo_thumb.webp" alt="Strip Limo LLC luxury limousine service Las Vegas Nevada website by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Luxury Transportation</span>
+      <span class="loc">📍 Las Vegas, NV</span>
     </div>
-    <h1>Our Work Speaks <span>Louder Than Words</span></h1>
-    <p>From healthcare to hospitality, beauty salons to business finance, luxury transportation to non-profit advocacy — every website below was custom designed from scratch. No templates. No shortcuts. Real results for real businesses across the USA and worldwide.</p>
-    <div class="stats">
-      <div class="stat"><div class="num">12+</div><div class="lbl">Websites Built</div></div>
-      <div class="stat"><div class="num">10+</div><div class="lbl">Industries</div></div>
-      <div class="stat"><div class="num">100%</div><div class="lbl">Custom Designed</div></div>
-      <div class="stat"><div class="num">✅</div><div class="lbl">ADA &amp; State Compliant</div></div>
-      <div class="stat"><div class="num">🌍</div><div class="lbl">USA &amp; Worldwide</div></div>
+    <div class="body">
+      <p class="bf">✦ Luxury Limousine Service</p>
+      <h3>Strip Limo LLC</h3>
+      <p>A premier limo service on the Las Vegas Strip needed a website that matched their prestige. They saw our work and hired us to impress — and we delivered. Built to attract and convert high-end clientele.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Gallery</span><span class="pill">SEO</span><span class="pill">Mobile-First</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://www.striplimollc.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
     </div>
-  </header>
+  </div>
 
-  <!-- Section Introduction -->
-  <section class="sl" id="portfolio">
-    <h2>Featured Client Work</h2>
-    <p>Every website is ADA compliant, mobile-first, SEO optimized, and fully compliant with the state and country laws of each client's business location — including privacy policy, cookie management, and accessibility standards. Click any card to visit the live website.</p>
-  </section>
-
-  <!-- Portfolio Grid -->
-  <main class="grid">
-
-    <!-- 1. Strip Limo -->
-    <article class="card">
-      <div class="imgwrap">
-        <span class="tag">Luxury Transportation</span>
-        <span class="loc">📍 Las Vegas, NV</span>
-        <img class="cimg" src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24032588/original.png" alt="Strip Limo LLC luxury limousine service Las Vegas Nevada website by WebSwan Digital Solutions" loading="lazy" />
-      </div>
-      <div class="body">
-        <p class="bf">✦ Luxury Limousine Service</p>
-        <h3>Strip Limo LLC</h3>
-        <p>A premier limo service on the Las Vegas Strip needed a website that matched their prestige. They saw our work and hired us to impress — and we delivered. Built to attract and convert high-end clientele.</p>
-        <div class="pills">
-          <span class="pill">Custom Web Design</span>
-          <span class="pill">Gallery</span>
-          <span class="pill">SEO</span>
-          <span class="pill">Mobile-First</span>
-          <span class="pill">ADA Compliant</span>
-        </div>
-        <a href="https://www.striplimollc.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
-      </div>
-    </article>
-
-    <!-- 2. Springfield Auto -->
-    <article class="card">
-      <div class="imgwrap">
-        <span class="tag">Auto Repair</span>
-        <span class="loc">📍 Springfield Gardens, NY</span>
-        <img class="cimg" src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24032584/original.png" alt="Springfield Auto Parts and Repairs website Springfield Gardens Queens New York by WebSwan Digital Solutions" loading="lazy" />
-      </div>
-      <div class="body">
-        <p class="bf">✦ Auto Repair &amp; Parts — 20 Years in Business</p>
-        <h3>Springfield Auto Parts &amp; Repairs</h3>
-        <p>In business 20 years without a website — referred by a happy client. The owner had spoken to others but trusted no one until he saw our work. Now visible online serving Springfield, Rosedale, Jamaica, Queens &amp; Long Island.</p>
-        <div class="pills">
-          <span class="pill">Custom Web Design</span>
-          <span class="pill">Local SEO</span>
-          <span class="pill">Multi-Location</span>
-          <span class="pill">Mobile-First</span>
-          <span class="pill">ADA Compliant</span>
-        </div>
-        <a href="https://springfieldautopartsandrepairs.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
-      </div>
-    </article>
-
-    <!-- 3. Octopus International -->
-    <article class="card">
-      <div class="imgwrap">
-        <span class="tag">Financial Services</span>
-        <span class="loc">📍 Orlando, FL</span>
-        <img class="cimg" src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24032589/original.png" alt="Octopus International INC money transfer financial services website by WebSwan Digital Solutions" loading="lazy" />
-      </div>
-      <div class="body">
-        <p class="bf">✦ International Money Transfer — Orlando, FL</p>
-        <h3>Octopus International INC</h3>
-        <p>A diplomat — the Ambassador of Mexico — who built a thriving international money transfer business in Florida. He needed a website that works 24/7 as his best employee, always representing him at the highest level. Fully custom, SEO-optimized, and built for global reach.</p>
-        <div class="pills">
-          <span class="pill">Custom Web Design</span>
-          <span class="pill">SEO</span>
-          <span class="pill">FinTech</span>
-          <span class="pill">Multilingual</span>
-          <span class="pill">ADA Compliant</span>
-        </div>
-        <a href="https://octopusinternationalinc.taniadomingue.multisiteadmin.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
-      </div>
-    </article>
-
-    <!-- 4. Les Jardins de Rio -->
-    <article class="card">
-      <div class="imgwrap">
-        <span class="tag">Boutique Hotel</span>
-        <span class="loc">📍 Rio de Janeiro, Brazil</span>
-        <img class="cimg" src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24032590/original.png" alt="Les Jardins de Rio boutique hotel website Rio de Janeiro Brazil by WebSwan Digital Solutions" loading="lazy" />
-      </div>
-      <div class="body">
-        <p class="bf">✦ Boutique Hotel — Rio de Janeiro, Brazil</p>
-        <h3>Les Jardins de Rio</h3>
-        <p>Needed an attractive, conversion-ready website. After launch they were fully booked over Christmas — for the first time ever. Guests from the USA, Europe &amp; the Caribbean found them via Google page 1.</p>
-        <div class="pills">
-          <span class="pill">Custom Web Design</span>
-          <span class="pill">International SEO</span>
-          <span class="pill">Page 1 Google</span>
-          <span class="pill">Gallery</span>
-          <span class="pill">Booking</span>
-        </div>
-        <a href="https://lesjardinsderio.taniadomingue.multisiteadmin.com/a/preview" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
-      </div>
-    </article>
-
-    <!-- 5. Hands of Gold -->
-    <article class="card">
-      <div class="imgwrap">
-        <span class="tag">Beauty / Hair Braiding</span>
-        <span class="loc">📍 Dallas, TX</span>
-        <img class="cimg" src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24032593/original.png" alt="Hands of Gold African Hair Braiding website Dallas Texas by WebSwan Digital Solutions" loading="lazy" />
-      </div>
-      <div class="body">
-        <p class="bf">✦ Authentic African Hair Braiding — Dallas, TX</p>
-        <h3>Hands of Gold African Hair Braiding</h3>
-        <p>Their previous website didn't reflect the quality and beauty of their artistry. The owner partnered with us to transform their online presence. Clients now book consistently through Google search.</p>
-        <div class="pills">
-          <span class="pill">Custom Web Design</span>
-          <span class="pill">Local SEO</span>
-          <span class="pill">Google Booking</span>
-          <span class="pill">Brand Identity</span>
-          <span class="pill">ADA Compliant</span>
-        </div>
-        <a href="https://www.handsofgoldafricanhairbraiding.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
-      </div>
-    </article>
-
-    <!-- 6. JuliaDKM -->
-    <article class="card">
-      <div class="imgwrap">
-        <span class="tag">Beauty / Hair Braiding</span>
-        <span class="loc">📍 Washington State</span>
-        <img class="cimg" src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24032594/original.png" alt="JuliaDKM Hair Braiding website Washington State by WebSwan Digital Solutions" loading="lazy" />
-      </div>
-      <div class="body">
-        <p class="bf">✦ African Hair Braiding Salon — Washington State</p>
-        <h3>JuliaDKM Hair Braiding</h3>
-        <p>A beautiful hair braiding salon needed a website that matched their craft. Custom designed with full service lists, gallery, and seamless contact integration to attract local clients across Washington State.</p>
-        <div class="pills">
-          <span class="pill">Custom Web Design</span>
-          <span class="pill">Beauty</span>
-          <span class="pill">Local SEO</span>
-          <span class="pill">Brand Identity</span>
-          <span class="pill">ADA Compliant</span>
-        </div>
-        <a href="https://juliadkmbraidinghair.taniadomingue.multisiteadmin.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
-      </div>
-    </article>
-
-    <!-- 7. Express Capital -->
-    <article class="card">
-      <div class="imgwrap">
-        <span class="tag">Commercial Finance</span>
-        <span class="loc">📍 Miami, FL</span>
-        <img class="cimg" src="https://02f0a56ef46d93f03c90-22ac5f107621879d5667e0d7ed595bdb.ssl.cf2.rackcdn.com/sites/98993/photos/24032595/original.png" alt="Express Capital Associates commercial lending and financial services website by WebSwan Digital Solutions" loading="lazy" />
-      </div>
-      <div class="body">
-        <p class="bf">✦ Commercial Lending &amp; Capital — Miami, FL</p>
-        <h3>Express Capital Associates</h3>
-        <p>A commercial financing and business capital advisory firm in South Florida requiring an authoritative, high-converting digital presence. Built to streamline loan intake, showcase funding programs, and project credibility.</p>
-        <div class="pills">
-          <span class="pill">Custom Web Design</span>
-          <span class="pill">FinTech</span>
-          <span class="pill">Lead Generation</span>
-          <span class="pill">Mobile-First</span>
-          <span class="pill">ADA Compliant</span>
-        </div>
-        <a href="https://www.expresscapitalnetworkassociates.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
-      </div>
-    </article>
-
-  </main>
-
-  <!-- CTA Banner Section -->
-  <section class="cta">
-    <h2>Ready to Transform Your Online Presence?</h2>
-    <p>Every website we build is 100% custom, mobile-first, and fully compliant with ADA accessibility and state privacy laws. Contact us today to claim your free, no-obligation web demo.</p>
-    <div class="brow">
-      <a href="https://taniad2169.github.io/WebSwan-Brand-Hub/" target="_blank" rel="noopener noreferrer" class="bacc">🚀 Claim Your Free Demo</a>
-      <a href="tel:4158770687" class="bout">📞 Call (415) 877-0687</a>
-      <a href="https://wa.me/14158770687" target="_blank" rel="noopener noreferrer" class="bwa">💬 WhatsApp Chat</a>
+  <!-- 2. Springfield Auto — Auto Repair & Parts -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/springfieldauto_thumb.webp" alt="Springfield Auto Parts and Repairs website Springfield Gardens Queens New York by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Auto Repair</span>
+      <span class="loc">📍 Springfield Gardens, NY</span>
     </div>
-  </section>
+    <div class="body">
+      <p class="bf">✦ Auto Repair &amp; Parts — 20 Years in Business</p>
+      <h3>Springfield Auto Parts &amp; Repairs</h3>
+      <p>In business 20 years without a website — referred by a happy client. The owner had spoken to others but trusted no one until he saw our work. Now visible online serving Springfield, Rosedale, Jamaica, Queens &amp; Long Island.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Local SEO</span><span class="pill">Multi-Location</span><span class="pill">Mobile-First</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://springfieldautopartsandrepairs.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
 
-  <!-- Footer -->
-  <footer class="foot">
-    <p>© 2026 WebSwan Digital Solutions. All Rights Reserved. | Award-Winning Custom Web Design, SEO &amp; Digital Solutions</p>
-  </footer>
+  <!-- 3. Octopus International — Money Transfer -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/octopus_thumb.webp" alt="Octopus International INC money transfer financial services website by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Money Transfer</span>
+      <span class="loc">📍 Orlando, FL</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ International Money Transfer — Orlando, FL</p>
+      <h3>Octopus International INC</h3>
+      <p>A diplomat — the Ambassador of Mexico — who built a thriving international money transfer business in Florida. He needed a website that works 24/7 as his best employee, always representing him at the highest level. His previous template website was something he had to constantly work and tweak to make function. We replaced it with a fully custom SEO-optimized site worthy of his reputation and global reach.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">SEO</span><span class="pill">Money Transfer</span><span class="pill">Multilingual</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://octopusinternationalinc.taniadomingue.multisiteadmin.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 4. Les Jardins de Rio — Boutique Hotel -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/lesjardins_thumb.webp" alt="Les Jardins de Rio boutique hotel website Rio de Janeiro Brazil by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Boutique Hotel</span>
+      <span class="loc">📍 Rio de Janeiro, Brazil</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Boutique Hotel — Rio de Janeiro, Brazil</p>
+      <h3>Les Jardins de Rio</h3>
+      <p>Needed a more attractive and professional website. After launch they were fully booked over Christmas — for the first time ever. Guests from the USA, Europe &amp; the Caribbean found them via Google page 1. The results were so impressive we were invited to fly to Brazil to extend our work.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">International SEO</span><span class="pill">Page 1 Google</span><span class="pill">Gallery</span><span class="pill">Booking</span></div>
+      <a href="https://lesjardinsderio.taniadomingue.multisiteadmin.com/a/preview" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 5. Hands of Gold — African Hair Braiding -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/handsofgold_thumb.webp" alt="Hands of Gold African Hair Braiding website Dallas Texas by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Beauty / Hair Braiding</span>
+      <span class="loc">📍 Dallas, TX</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Authentic African Hair Braiding — Dallas, TX</p>
+      <h3>Hands of Gold African Hair Braiding</h3>
+      <p>Their previous website didn't reflect the quality and beauty of their artistry. The owner took a chance on us — and it changed her business. Clients now book consistently through Google search. Business is growing and expanding.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Local SEO</span><span class="pill">Google Booking</span><span class="pill">Brand Identity</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://www.handsofgoldafricanhairbraiding.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 6. JuliaDKM — Hair Braiding Salon -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/juliadkm_thumb.webp" alt="JuliaDKM Hair Braiding website Washington State by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Beauty / Hair Braiding</span>
+      <span class="loc">📍 Washington State</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ African Hair Braiding Salon — Washington State</p>
+      <h3>JuliaDKM Hair Braiding</h3>
+      <p>A beautiful hair braiding salon needed a website that matched their exceptional craft. Custom designed with services, gallery, and contact — built to attract local clients and showcase authentic African hair braiding artistry.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Beauty</span><span class="pill">Local SEO</span><span class="pill">Brand Identity</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://juliadkmbraidinghair.taniadomingue.multisiteadmin.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 7. Express Capital — Merchant Cash Advance -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/expresscapital_thumb.webp" alt="Express Capital Associates merchant cash advance business financing website New York by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Business Finance</span>
+      <span class="loc">📍 New York, NY</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Merchant Cash Advance — New York, NY</p>
+      <h3>Express Capital Associates</h3>
+      <p>A merchant cash advance company for small business owners. They discovered us through social media and called with full confidence when ready for their first website. A powerful conversion-focused site built to generate qualified leads.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Lead Generation</span><span class="pill">Finance</span><span class="pill">SEO</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://expresscapassociates.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 8. Alliance Medical — Healthcare -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/alliancemedical_thumb.webp" alt="Alliance Medical Center Inc nurse practitioner healthcare website Miami Florida by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Healthcare</span>
+      <span class="loc">📍 Miami, FL</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Nurse Practitioner Medical Center — Miami, FL</p>
+      <h3>Alliance Medical Center Inc</h3>
+      <p>A nurse practitioner in Miami needed a professional website for visibility and online appointment booking. Clean, trust-driven healthcare design that puts patient care first. Highly satisfied with the results.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Healthcare</span><span class="pill">Appointment Booking</span><span class="pill">SEO</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://alliancemedicalcenterinc.taniadomingue.multisiteadmin.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 9. Colbert L'Artiste — Artist Portfolio -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/colbert_thumb.webp" alt="Colbert L'Artiste physician artist portfolio website Richmond California by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Artist Portfolio</span>
+      <span class="loc">📍 Richmond, CA</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Physician, Poet &amp; Artist — Richmond, CA</p>
+      <h3>Colbert L'Artiste</h3>
+      <p>One of my best clients — I took true pleasure working with him. A physician whose passion lives in art, music and poetry. He had a dream to share his creative world online and we worked together as a team to bring it to life — a vibrant multimedia portfolio at the beautiful intersection of art and culture.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Artist Portfolio</span><span class="pill">Music</span><span class="pill">Poetry</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://colbertlartiste.taniadomingue.multisiteadmin.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 10. Voice of Gonaïbo — Nonprofit Website -->
+  <div class="card">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/voiceofgonaibo_thumb.webp" alt="Voice of Gonaïbo Haiti charity nonprofit website by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Nonprofit</span>
+      <span class="loc">📍 Gonaïves, Haiti</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Haitian Charity &amp; Nonprofit — Gonaïves, Haiti</p>
+      <h3>Voice of Gonaïbo</h3>
+      <p>A nonprofit organization dedicated to helping children in Haiti. They needed a website to share their mission, attract donors, and showcase their impact. We built a heartfelt, story-driven site that connects visitors to their cause and inspires action.</p>
+      <div class="pills"><span class="pill">Custom Web Design</span><span class="pill">Nonprofit</span><span class="pill">Donation Integration</span><span class="pill">Storytelling</span><span class="pill">ADA Compliant</span></div>
+      <a href="https://voiceofgonaibo.taniadomingue.multisiteadmin.com" target="_blank" rel="noopener noreferrer" class="btn">🔗 Visit Website →</a>
+    </div>
+  </div>
+
+  <!-- 11. Leo Hair — Custom Phone Application (NEW) -->
+  <div class="card wide">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/leo_pwa_thumb.webp" alt="Leo Hair Custom Phone Application – Ilha da Gigóia, Brazil" loading="lazy">
+      <span class="tag">Phone Application</span>
+      <span class="loc">📍 Ilha da Gigóia, Brazil</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ From Instagram &amp; WhatsApp to One‑Tap Booking — Leo’s Custom Phone Application</p>
+      <h3>Leo Hair — Custom Phone Application</h3>
+      <p>Ilha da Gigóia, Rio de Janeiro, Brazil</p>
+      <p>Leo is a hairstylist located in Ilha da Gigóia, Brazil, where many customers prefer to communicate and do business through WhatsApp and Instagram. When I introduced Leo to The WebSwan’s Custom Phone Application, he immediately saw the possibilities.</p>
+      <p>Unlike a traditional mobile app, there is no App Store download required. Leo can simply share his application link with customers through WhatsApp, Instagram, social media, text messages, or his website. In less than a minute, customers can add it directly to the home screen of their phone, tablet, laptop, or desktop for quick access whenever they need him.</p>
+      <p><strong>What changed for Leo?</strong> Instead of customers having to call him just to schedule an appointment, they can now open Leo’s application directly from their home screen and: Book an appointment through WhatsApp • Call Leo with one tap • Quickly access his business information and services • Keep his business conveniently saved on their device • Share his application with friends and family.</p>
+      <p>Leo loves his Custom Phone Application — and so do his clients. They now have a faster, easier way to connect with him without searching through Instagram or making unnecessary phone calls just to schedule an appointment. And Leo’s experience with The WebSwan didn’t stop there. After seeing what the application could do for his business, he became an advertising client as well.</p>
+      <p><strong>One link. One tap. Your business right on your customer’s home screen.</strong></p>
+      <div class="pills"><span class="pill">Phone App</span><span class="pill">Mobile Application</span><span class="pill">One‑Tap Booking</span><span class="pill">WhatsApp Integration</span><span class="pill">No App Store</span></div>
+      <a href="https://volume-leo.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">📱 Launch Leo’s Phone App →</a>
+    </div>
+  </div>
+
+  <!-- 12. Leo Phone App — Mobile Application (original) -->
+  <div class="card wide">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/leo_pwa_thumb.webp" alt="Leo Phone App mobile application development by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Phone Application</span>
+      <span class="loc">📍 Mobile App</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Mobile Phone Application Development</p>
+      <h3>Leo Phone App</h3>
+      <p>A custom-built mobile phone application designed for Leo — delivering a seamless, app-like experience directly on mobile devices. Fast, reliable, and engaging with offline capabilities, push notifications, and a smooth user interface. No app store required — works directly from the phone.</p>
+      <div class="pills"><span class="pill">Phone App</span><span class="pill">Mobile Application</span><span class="pill">Offline Mode</span><span class="pill">Push Notifications</span><span class="pill">Mobile-First</span></div>
+      <a href="https://volume-leo.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">📱 Launch Phone App →</a>
+    </div>
+  </div>
+
+  <!-- 13. Voice of Gonaïbo Phone App — Mobile Application -->
+  <div class="card wide">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/gonaibo_app_thumb.webp" alt="Voice of Gonaïbo mobile phone application by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Phone Application</span>
+      <span class="loc">📍 Mobile App</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Mobile Phone Application — Gonaïves, Haiti</p>
+      <h3>Voice of Gonaïbo Phone App</h3>
+      <p>A custom mobile application for the Voice of Gonaïbo nonprofit organization. Extending their mission to mobile devices, this app provides easy access to information, donation options, and real-time updates about their work helping children in Haiti.</p>
+      <div class="pills"><span class="pill">Phone App</span><span class="pill">Mobile Application</span><span class="pill">Nonprofit</span><span class="pill">Donation Integration</span><span class="pill">Push Notifications</span></div>
+      <a href="https://gonaibo-2026.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">📱 Launch Phone App →</a>
+    </div>
+  </div>
+
+  <!-- 14. Octopus International Phone App — Mobile Application -->
+  <div class="card wide">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/octopus_app_thumb.webp" alt="Octopus International mobile phone application by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Phone Application</span>
+      <span class="loc">📍 Mobile App</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Mobile Phone Application — Money Transfer</p>
+      <h3>Octopus International Phone App</h3>
+      <p>A companion mobile application for Octopus International's money transfer services. Now clients can manage transfers, track transactions, and access financial services directly from their mobile devices — anytime, anywhere.</p>
+      <div class="pills"><span class="pill">Phone App</span><span class="pill">Mobile Application</span><span class="pill">Money Transfer</span><span class="pill">FinTech</span><span class="pill">Real-Time Updates</span></div>
+      <a href="https://octopus-international.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">📱 Launch Phone App →</a>
+    </div>
+  </div>
+
+  <!-- 15. The WebSwan Referral — Mobile Application -->
+  <div class="card wide">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/webswan_referral_thumb.webp" alt="WebSwan Referral mobile phone application by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Phone Application</span>
+      <span class="loc">📍 Mobile App</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Mobile Phone Application — Referral System</p>
+      <h3>The WebSwan Referral App</h3>
+      <p>A custom mobile application designed for WebSwan's referral program. Users can easily track referrals, manage commissions, and access real-time analytics — all from the convenience of their mobile device.</p>
+      <div class="pills"><span class="pill">Phone App</span><span class="pill">Mobile Application</span><span class="pill">Referral System</span><span class="pill">Analytics</span><span class="pill">Real-Time Tracking</span></div>
+      <a href="https://webswan-referral.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">📱 Launch Phone App →</a>
+    </div>
+  </div>
+
+  <!-- 16. Springfield Auto Parts & Repairs Phone App — Mobile Application -->
+  <div class="card wide">
+    <div class="imgwrap">
+      <img class="cimg" src="https://webswan-site-assets-2026.thewebswann.chatgpt.site/assets/springfield_app_thumb.webp" alt="Springfield Auto Parts mobile phone application by WebSwan Digital Solutions" loading="lazy">
+      <span class="tag">Phone Application</span>
+      <span class="loc">📍 Mobile App</span>
+    </div>
+    <div class="body">
+      <p class="bf">✦ Mobile Phone Application — Auto Repair &amp; Parts</p>
+      <h3>Springfield Auto Parts &amp; Repairs Phone App</h3>
+      <p>A custom mobile application for Springfield Auto Parts &amp; Repairs. Now customers can book appointments, request quotes, access repair history, and receive real-time notifications about their vehicle services — all from their mobile device.</p>
+      <div class="pills"><span class="pill">Phone App</span><span class="pill">Mobile Application</span><span class="pill">Auto Repair</span><span class="pill">Appointment Booking</span><span class="pill">Push Notifications</span></div>
+      <a href="https://springfield-pwa.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">📱 Launch Phone App →</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta">
+  <h2>Ready to Transform Your Digital Presence?</h2>
+  <p>From luxury brands to healthcare and nonprofits — we build websites that get results. Let's create something extraordinary together.</p>
+  <div class="brow">
+    <a href="#" class="bacc">📞 Contact Us Today</a>
+    <a href="#" class="bout">📧 Get a Free Quote</a>
+    <a href="#" class="bwa">💬 Schedule a Consultation</a>
+  </div>
+</div>
+
+<div class="foot">
+  <p>© 2025 WebSwan Digital Solutions — Award-Winning Web Design Agency | Custom Websites That Perform</p>
+</div>
 
 </body>
 </html>
