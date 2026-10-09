@@ -429,6 +429,79 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   </div>
 </footer>
 
+<!-- Review popup (same design as thewebswan.com): rotates real reviews, links to Google and Yelp -->
+<style>
+#ws-review-popup{position:fixed;bottom:24px;left:24px;z-index:9998;width:300px;background:#fff;border-radius:16px;border:2px solid #07aaf5;box-shadow:0 12px 32px rgba(7,170,245,.25);padding:16px 18px;display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;cursor:pointer}
+#ws-review-popup.ws-show{opacity:1;transform:translateY(0);pointer-events:auto}
+#ws-review-popup .ws-swan-avatar{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#07aaf5,#62c3f0);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+#ws-review-popup .ws-body{flex:1;min-width:0}
+#ws-review-popup .ws-stars{color:#ffc107;font-size:.85rem;letter-spacing:1px;margin-bottom:4px}
+#ws-review-popup .ws-text{font-size:.83rem;line-height:1.4;color:#1a2b3d;margin-bottom:6px;transition:opacity .3s ease}
+#ws-review-popup .ws-name{font-size:.75rem;font-weight:700;color:#07aaf5;transition:opacity .3s ease}
+#ws-review-popup .ws-name span{font-weight:400;color:#6b7c8c}
+#ws-review-popup .ws-close{position:absolute;top:8px;right:10px;background:none;border:none;color:#a9b7c3;font-size:.95rem;cursor:pointer;line-height:1;padding:2px;min-height:0;box-shadow:none}
+#ws-review-popup .ws-close:hover{color:#07aaf5}
+#ws-review-popup .ws-links{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}
+#ws-review-popup .ws-links a{color:#07aaf5;font-size:.74rem;font-weight:700;text-decoration:underline}
+#ws-review-popup .ws-links a.ws-yelp{color:#d32323}
+#ws-review-minimized{position:fixed;bottom:24px;left:24px;z-index:9998;width:48px;height:48px;min-height:0;padding:0;border-radius:50%;background:linear-gradient(135deg,#07aaf5,#62c3f0);display:none;align-items:center;justify-content:center;font-size:1.4rem;cursor:pointer;box-shadow:0 8px 20px rgba(7,170,245,.35);border:none;transition:transform .2s ease}
+#ws-review-minimized:hover{transform:scale(1.08)}
+#ws-review-minimized.ws-show-min{display:flex}
+@media (max-width:520px){#ws-review-minimized{left:12px;bottom:12px}#ws-review-popup{left:12px;right:12px;bottom:12px;width:auto}}
+@media (prefers-reduced-motion:reduce){#ws-review-popup,#ws-review-popup .ws-text,#ws-review-popup .ws-name{transition:none}}
+</style>
+<div id="ws-review-popup" role="complementary" aria-label="Client reviews">
+  <button class="ws-close" id="ws-review-close" type="button" aria-label="Close reviews">✕</button>
+  <div class="ws-swan-avatar" aria-hidden="true">🦢</div>
+  <div class="ws-body">
+    <div class="ws-stars" id="ws-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+    <div class="ws-text" id="ws-review-text"></div>
+    <div class="ws-name" id="ws-review-name"></div>
+    <div class="ws-links">
+      <a href="https://g.page/r/CRAvRwiuRifhEBM/review" target="_blank" rel="noopener" id="ws-google-review">✍️ Review us on Google</a>
+      <a href="https://www.yelp.com/biz/the-webswan-emeryville" target="_blank" rel="noopener" class="ws-yelp" id="ws-yelp-review">★ Review us on Yelp</a>
+    </div>
+  </div>
+</div>
+<button id="ws-review-minimized" type="button" aria-label="Show reviews">🦢</button>
+<script>
+(function(){
+  var reviews=[
+    {text:"Working with Tania was one of the best decisions I made for my business. She listened carefully to what I wanted, added her own creative magic, and built a website that perfectly represents my brand. She's professional, patient, super talented, and always quick to respond. The site looks amazing, runs smoothly, and I've gotten tons of positive feedback. If you're looking for someone who truly cares about your project and delivers top-quality work — she's the one. Highly recommended!",name:"Yonathan Berhane",location:"Oakland, CA",source:"google"},
+    {text:"If you're looking for a reliable and affordable partner to create a stunning and effective website, I highly recommend The Webswan. They deliver top-notch service that goes above and beyond, ensuring your online success!",name:"Alyx L.",location:"Oakland, CA",source:"yelp"},
+    {text:"See client recommendations and credentials — click to learn more.",source:"alignable",isCTA:true}
+  ];
+  var links={google:"https://g.co/kgs/BGmttmu",yelp:"https://www.yelp.com/biz/the-webswan-emeryville",alignable:"https://taniad2169.github.io/WebSWan-Alignable/",recs:"https://www.alignable.com/biz/recommendations/accepted?_seid=14274212693&_tid=6596585"};
+  var pop=document.getElementById('ws-review-popup'),min=document.getElementById('ws-review-minimized'),
+      stars=document.getElementById('ws-review-stars'),txt=document.getElementById('ws-review-text'),
+      nm=document.getElementById('ws-review-name'),cls=document.getElementById('ws-review-close'),i=0,cur=reviews[0];
+  function clip(s,n){return s.length<=n?s:s.slice(0,n).replace(/\s+\S*$/,'')+'…';}
+  function show(r){
+    cur=r;
+    if(r.isCTA){stars.style.display='none';txt.textContent=r.text;
+      nm.innerHTML='<span id="ws-cta-portfolio" style="color:#07aaf5;font-weight:700">Learn more about my credentials →</span><br><span id="ws-cta-recs" style="color:#07aaf5;font-weight:700">View my recommendations →</span>';}
+    else{stars.style.display='';txt.textContent='"'+clip(r.text,170)+'"';nm.textContent=r.name+' ';
+      var sp=document.createElement('span');sp.textContent='· '+r.location;nm.appendChild(sp);}
+  }
+  pop.addEventListener('click',function(e){
+    if(e.target.closest('a')||e.target===cls)return;
+    var url=e.target.id==='ws-cta-recs'?links.recs:(links[cur.source]||links.google);
+    window.open(url,'_blank','noopener');
+  });
+  cls.addEventListener('click',function(e){e.stopPropagation();pop.classList.remove('ws-show');min.classList.add('ws-show-min');});
+  min.addEventListener('click',function(){min.classList.remove('ws-show-min');pop.classList.add('ws-show');});
+  setTimeout(function(){
+    show(reviews[0]);pop.classList.add('ws-show');
+    setInterval(function(){
+      if(!pop.classList.contains('ws-show'))return;
+      i=(i+1)%reviews.length;txt.style.opacity='0';nm.style.opacity='0';
+      setTimeout(function(){show(reviews[i]);txt.style.opacity='1';nm.style.opacity='1';},300);
+    },8000);
+  },1500);
+})();
+</script>
+
+
 <script>
 (function(){
   document.getElementById('yr').textContent = new Date().getFullYear();
