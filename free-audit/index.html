@@ -561,5 +561,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   }
 })();
 </script>
+<script>
+(function(){
+  // Tell a parent page (like webswandigitalsolutions.com) how tall this page is, so its embed fits without a scrollbar
+  if(window.parent===window) return;
+  var last=0;
+  function send(){ var h=document.documentElement.scrollHeight; if(Math.abs(h-last)>4){ last=h; try{ parent.postMessage({wsAuditHeight:h},'*'); }catch(e){} } }
+  window.addEventListener('load',send); window.addEventListener('resize',send);
+  if('ResizeObserver' in window) new ResizeObserver(send).observe(document.body);
+  setInterval(send,1500); send();
+})();
+</script>
 </body>
 </html>
